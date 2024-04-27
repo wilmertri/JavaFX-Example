@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="356.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdemo.ListUsersTableController">
+   <children>
+      <TitledPane animated="false" layoutX="46.0" layoutY="56.0" prefHeight="254.0" prefWidth="509.0" text="Listado de Usuarios">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="507.0">
+               <children>
+                  <TableView fx:id="tableView" layoutY="-4.0" prefHeight="232.0" prefWidth="509.0">
+                    <columns>
+                      <TableColumn id="colName" fx:id="nameColumn" prefWidth="160.0" text="Name">
+                          <cellValueFactory>
+                              
+                          </cellValueFactory>
+                      </TableColumn>
+                      <TableColumn fx:id="lastNameColumn" prefWidth="173.0" text="LastName" />
+                        <TableColumn fx:id="ageColumn" prefWidth="175.0" text="Age">
+                            
+                        </TableColumn>
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>
