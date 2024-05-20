@@ -1,6 +1,6 @@
 Paco;Perez;30
 Fabricio;Romano;43
-Fabian;Triana;34
-Rosa;Martinez;45
-Fabricio;Montez;34
+Mauricio;Montez;31
 Alejandra;Orozco;36
+Mario;Maracus;38
+Martin;Herazo;35

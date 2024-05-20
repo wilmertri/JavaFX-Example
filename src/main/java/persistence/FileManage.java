@@ -70,6 +70,18 @@ public class FileManage {
         return false;
     }
 
+    public void deleteDataInFile(String lineToDelete){
+        ArrayList<String> lines = this.getDataOfFile();
+        if(lines != null){
+            if(lines.remove(lineToDelete)){
+                writeLinesToFile(lines);
+                System.out.println("Linea eliminada exitosamente");
+            }else{
+                System.out.println("La linea a eliminar no se encontró en el archivo");
+            }
+        }
+    }
+
     private File getFile(){
         return new File("files/" + this.fileName);
     }

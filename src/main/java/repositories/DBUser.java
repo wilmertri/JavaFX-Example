@@ -7,19 +7,19 @@ import persistence.FileManage;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class DBUser implements IDatabaseEntity {
+public class DBUser extends DatabaseManage implements IDatabaseEntity<User> {
 
     private User user;
-    private FileManage fileManage;
-
-    public DBUser(User user) {
-        this.user = user;
-        this.fileManage = new FileManage("users.txt");
-    }
 
     public DBUser() {
-        this.fileManage = new FileManage("users.txt");
+        super("users.txt");
     }
+
+    public DBUser(User user) {
+        super("users.txt");
+        this.user = user;
+    }
+
     public ArrayList<User> getData(){
         ArrayList<User> users = null;
         FileManage fileManage = new FileManage("users.txt");
@@ -39,16 +39,23 @@ public class DBUser implements IDatabaseEntity {
 
     @Override
     public boolean addData() {
-        return this.fileManage.insertDataInFile(this.getLineData());
+        return this.fileManage.insertDataInFile(this.getLineData(this.user));
     }
 
     @Override
-    public boolean updateData() {
-        return false;
+    public boolean updateData(User newUser) {
+        String lineOldUser = this.getLineData(this.user);
+        String lineNewUser = this.getLineData(newUser);
+        return this.fileManage.updateDataInFile(lineOldUser, lineNewUser);
     }
 
     @Override
-    public String getLineData() {
-        return this.user.getName() + ";" + this.user.getLastName() + ";" + this.user.getAge();
+    public void deleteData() {
+        this.fileManage.deleteDataInFile(this.getLineData(this.user));
+    }
+
+    @Override
+    public String getLineData(User user) {
+        return user.getName() + ";" + user.getLastName() + ";" + user.getAge();
     }
 }
